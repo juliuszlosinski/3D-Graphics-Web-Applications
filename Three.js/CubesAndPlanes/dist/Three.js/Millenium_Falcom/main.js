@@ -72,7 +72,7 @@ controls.update();
 
 // b) LIGHTS:
 const spotLight = new THREE.SpotLight(
-    0xCCAAFF,  3500, 100, 0.22, 1
+    0xCCAAFF,  2100, 100, 0.22, 1
 );
 spotLight.position.set(0, 25, 0);
 spotLight.castShadow=true;
