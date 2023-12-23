@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from 'https://unpkg.com/browse/three@0.97.0/build/three.module.js';
 
 // PARAMETRY
 var windowWidth = window.innerWidth   // Szerokość okna.
@@ -57,7 +57,8 @@ function createCubes(cubes, numberOfCubes)
             cubeAttributes.height, 
             cubeAttributes.depth
         ); 
-        const material = new THREE.MeshBasicMaterial({color: cubeAttributes.color}); // METERIAŁ
+        const texture = new THREE.TextureLoader().load( "wood.png" );
+        const material = new THREE.MeshPhongMaterial({map: texture, depthTest:true}); // METERIAŁ
         const cube = new THREE.Mesh(geometry, material)
         cube.position.x = cubeAttributes.position.x
         cube.position.y = cubeAttributes.position.y
@@ -79,6 +80,48 @@ var numberOfCubes = 50
 createCubes(cubes, numberOfCubes)
 addCubesToTheScene(cubes, numberOfCubes, scene)
 
+// Dodanie światła
+
+// 1. Kierunkowego.
+const directionalColor = 0xFFFFFF;
+const directionalIntensity = 1.5;
+const directionalLight = new THREE.DirectionalLight(directionalColor, directionalIntensity);
+directionalLight.position.set(-1, 2, 4);
+
+scene.add(directionalLight);
+
+// 2. Zawsze obecnego.
+const ambientColor = 0xFF000AA;
+const ambientIntensity = 1;
+const ambientLight = new THREE.AmbientLight(ambientColor, ambientIntensity);
+scene.add(ambientLight);
+
+// DODANIE PODSTAWKI
+
+// 1. Ustawienie Tekstury.
+const planeSize = 40
+const loader = new THREE.TextureLoader();
+const texture = loader.load('checker.png');
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+texture.magFilter = THREE.NearestFilter;
+texture.colorSpace = THREE.SRGBColorSpace;
+const repeats = 40 / 2;
+texture.repeat.set(repeats, repeats);
+
+// 2. Utworzenie geometrii wraz z materiałem.
+const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
+const planeMat = new THREE.MeshPhongMaterial({
+  map: texture,
+  side: THREE.DoubleSide,
+});
+
+// 3. Utworzenie siatki.
+const planeMesh = new THREE.Mesh(planeGeo, planeMat);
+planeMesh.rotation.x = Math.PI * -.5;
+planeMesh.position.y = -5
+scene.add(planeMesh)
+
 // 5. Animacja
 camera.position.z = 5;
 function animateScene()
@@ -94,5 +137,3 @@ function animateScene()
     renderer.render(scene, camera)
 }
 animateScene()
-
-
