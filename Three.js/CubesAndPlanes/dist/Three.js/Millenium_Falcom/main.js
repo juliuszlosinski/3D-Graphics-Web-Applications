@@ -44,19 +44,23 @@ scene.add(groundMesh);
 
 // 3D MODEL:
 const loader = new GLTFLoader().setPath("./public/");
-loader.load('scene.gltf', (gltf)=>{
+loader.load('scene.gltf', (gltf) => {
     const mesh = gltf.scene;
-    mesh.position.set(0, 1.05, -1);
-
-    mesh.traverse((child)=>{
-        if(child.isMesh){
-            child.castShadow = true;
-            child.receiveShadow = true;
-        }
+  
+    mesh.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
     });
-
-    scene.add(mesh)
-});
+  
+    mesh.position.set(0, 1.05, -1);
+    scene.add(mesh);
+  
+    document.getElementById('progress-container').style.display = 'none';
+  }, ( xhr ) => {
+    document.getElementById('progress').innerHTML = `LOADING ${Math.max(xhr.loaded / xhr.total, 1) * 100}/100`;
+  },);
 
 // Controls:
 const controls = new OrbitControls(camera, renderer.domElement);
