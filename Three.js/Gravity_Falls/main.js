@@ -93,7 +93,7 @@ spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
 
 const ambientLight = new THREE.AmbientLight(
-  0xFFFFFF, 1.65
+  0xFFFFFF, 1.55
 )
 scene.add(ambientLight)
 
