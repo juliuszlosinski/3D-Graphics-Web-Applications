@@ -64,7 +64,7 @@ controls.update();
 
 // b) LIGHTS:
 const spotLight = new THREE.SpotLight(
-    0xCCAAFF,  5, 0, 0.22, 0.5
+    0xFFFFFF,  5, 0, 0.22, 0.5
 );
 spotLight.position.set(0, 25, 0);
 spotLight.castShadow=true;
@@ -72,7 +72,7 @@ spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
 
 const ambientLight = new THREE.AmbientLight(
-  0xFFFFFF, 2.1
+  0xFFFFFF, 1.65
 )
 scene.add(ambientLight)
 
