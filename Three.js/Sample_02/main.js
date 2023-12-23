@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.module.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.module.js'
 
 // PARAMETRY
 var windowWidth = window.innerWidth   // Szerokość okna.
