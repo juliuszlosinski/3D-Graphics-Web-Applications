@@ -72,7 +72,7 @@ controls.update();
 
 // b) LIGHTS:
 const spotLight = new THREE.SpotLight(
-    0xCCAAFF,  2100, 100, 0.22, 1
+    0xCCAAFF,  5, 100, 0.22, 0.5
 );
 spotLight.position.set(0, 25, 0);
 spotLight.castShadow=true;
@@ -83,10 +83,24 @@ scene.add(spotLight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+var max = Math.random()
+var current = 0.0;
+var min = 0
+var go = true
+
 // ANIMATION:
 function animate(){
     requestAnimationFrame(animate)
-    spotLight.color=spotLight.color
+    if(current < min || current > max)
+    {
+        go = !go;
+    }
+    if(go){
+       current += 0.003;
+    }else{
+        current -=0.003;
+    }
+    spotLight.color.setRGB(current, current-0.25, current-0.5)
     controls.update();
     renderer.render(scene, camera);
 }
