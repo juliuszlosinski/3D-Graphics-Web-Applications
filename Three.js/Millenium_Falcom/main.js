@@ -43,7 +43,7 @@ groundMesh.receiveShadow = true;
 scene.add(groundMesh);
 
 // 3D MODEL:
-const loader = new GLTFLoader().setPath("./public/millennium_falcon/");
+const loader = new GLTFLoader().setPath("./public/");
 loader.load('scene.gltf', (gltf)=>{
     const mesh = gltf.scene;
     mesh.position.set(0, 1.05, -1);
