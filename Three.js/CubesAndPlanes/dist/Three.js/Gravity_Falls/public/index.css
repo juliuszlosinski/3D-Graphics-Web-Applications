@@ -1,3 +1,8 @@
+@font-face {
+  font-family: myFont;
+  src: url(fonts/gravitation_falls.otf);
+}
+
 body {
   background-color: black;
   margin: 0;
@@ -16,11 +21,13 @@ body {
   margin-top: 4px;
 }
 
-h1 {
+h3 {
   color: rgb(215, 215, 215);
   font-size: 7em;
   font-family: 'Code';
   margin: 0px;
+  font-family: myFont;
+  letter-spacing: 5px;
 }
 
 #progress-container {
