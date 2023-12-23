@@ -1,16 +1,16 @@
 // FOR ONLINE IMPLEMENTATION
-/*
+
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.module.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
-*/
+
 
 // FOR LOCAL IMPLEMENTATION
-
+/*
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
-
+*/
 
 // 1. RENDERER:
 const renderer = new THREE.WebGLRenderer({antialias: true});
