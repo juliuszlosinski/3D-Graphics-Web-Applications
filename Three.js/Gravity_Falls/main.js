@@ -31,6 +31,18 @@ camera.position.set(4, 5, 20);
 
 // OBJECTS:
 
+var listener = new THREE.AudioListener();
+camera.add( listener );
+
+// AUDIO
+var listener = new THREE.AudioListener();
+camera.add( listener );
+
+// create a global audio source
+var sound = new THREE.Audio( listener );
+
+var audioLoader = new THREE.AudioLoader();
+
 // A) 3D MODEL:
 const loader = new GLTFLoader().setPath("./public/");
 loader.load('GravityFalls.gltf', (gltf) => {
@@ -47,18 +59,27 @@ loader.load('GravityFalls.gltf', (gltf) => {
     scene.add(mesh);
   
     document.getElementById('progress-container').style.display = 'none';
+  
+    audioLoader.load( './music.mp3', function( buffer ) {
+    sound.setBuffer( buffer );
+    sound.setLoop(true);
+    sound.setVolume(0.5);
+    sound.play();
+},
+function ( xhr ) {
+    console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+},
+function ( err ) {
+    console.log( 'Un error ha ocurrido' );
+}
+);
   }, ( xhr ) => {
     document.getElementById('progress').innerHTML = `LOADING ${Math.max(xhr.loaded / xhr.total, 1) * 100}/100`;
 },);
 
 // Controls:
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.enablePan = false;
-controls.minDistance = 10;
-controls.maxDistance = 20;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 5.5;
+
 controls.target = new THREE.Vector3(0, 1, 0);
 controls.update();
 
@@ -84,34 +105,6 @@ var max = Math.random()
 var current = 0.0;
 var min = 0
 var go = true
-
-var listener = new THREE.AudioListener();
-camera.add( listener );
-
-// AUDIO
-var listener = new THREE.AudioListener();
-camera.add( listener );
-
-// create a global audio source
-var sound = new THREE.Audio( listener );
-
-var audioLoader = new THREE.AudioLoader();
-
-//Load a sound and set it as the Audio object's buffer
-audioLoader.load( './music.mp3', function( buffer ) {
-    sound.setBuffer( buffer );
-    sound.setLoop(true);
-    sound.setVolume(0.5);
-    sound.play();
-},
-function ( xhr ) {
-    console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
-},
-
-function ( err ) {
-    console.log( 'Un error ha ocurrido' );
-}
-);
 
 // ANIMATION:
 function animate(){
