@@ -14,20 +14,9 @@ body {
   padding: 64px;
 }
 
-.border {
-  background: linear-gradient(90deg, gray, 90%, black);
-  height: 2px;
-  width: 1100px;
-  margin-top: 4px;
-}
-
-h3 {
-  color: rgb(215, 215, 215);
-  font-size: 7em;
-  font-family: 'Code';
-  margin: 0px;
-  font-family: myFont;
-  letter-spacing: 5px;
+img{
+  width: 20%;
+  height: 20%;
 }
 
 #progress-container {
@@ -36,12 +25,16 @@ h3 {
   height: 100%;
   display: flex;
   justify-content: center;
+  font-family: myFont;
+  font-size: 48px;
+  letter-spacing: 2px;
   align-items: center;
 }
 
 #progress {
-  font-family: 'Code';
+  font-family: myFont;
   font-size: 48px;
+  letter-spacing: 2px;
   font-weight: bold;
   color: white;
 }
