@@ -57,13 +57,13 @@ loader.load('GravityFalls.gltf', (gltf) => {
     
     mesh.position.set(0, -3.00, -0.5);
     scene.add(mesh);
-  
+    
     document.getElementById('progress-container').style.display = 'none';
-  
+
     audioLoader.load( './music.mp3', function( buffer ) {
     sound.setBuffer( buffer );
     sound.setLoop(true);
-    sound.setVolume(0.5);
+    sound.setVolume(0.004);
     sound.play();
 },
 function ( xhr ) {
