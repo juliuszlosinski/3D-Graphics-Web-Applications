@@ -96,9 +96,9 @@ function animate(){
         go = !go;
     }
     if(go){
-       current += 0.003;
+       current += 0.0005;
     }else{
-        current -=0.003;
+        current -=0.0005;
     }
     spotLight.color.setRGB(current, current-0.25, current-0.5)
     controls.update();
