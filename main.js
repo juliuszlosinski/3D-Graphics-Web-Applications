@@ -80,9 +80,9 @@ function animateScene()
 {
     for(let i =0; i<numberOfSpheres; i++)
     {
-        spheres[i].rotation.x += 0.1;
-        spheres[i].rotation.y += 0.1;
-        spheres[i].rotation.z += 0.1;
+        spheres[i].rotation.x += 0.001;
+        spheres[i].rotation.y += 0.001;
+        spheres[i].rotation.z += 0.001;
     }
 
     requestAnimationFrame(animateScene)
