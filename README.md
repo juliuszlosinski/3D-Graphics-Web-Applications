@@ -1,7 +1,5 @@
 # 3D Graphics Web Applications.
-
 **Link:** [https://github.com/juliuszlosinski/3D-Graphics-Web-Applications/tree/main/Three.js/CubesAndPlanes](https://juliuszlosinski.github.io/3D-Graphics-Web-Applications/)
-
 #
 ![01](https://github.com/juliuszlosinski/3D-Graphics-Web-Applications/assets/72278818/d0c581ab-aa37-4132-adde-da344ddd9ea5)
 #
